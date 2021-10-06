@@ -1,0 +1,233 @@
+// For the Fucking Homepages
+// Ahhhhh
+
+//
+section {
+  width: 100vw;
+  min-height: 80vh;
+  position: relative;
+}
+
+#Carrousel {
+  height: 80vh;
+  overflow: visible;
+}
+#Carrousel::after {
+  content: "";
+  background: #151515;
+  opacity: 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.Slide_Dots_Count {
+  height: 50px;
+  width: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 2;
+
+  .Dots_Items {
+    padding: 10px;
+    cursor: pointer;
+
+    div {
+      height: 10px;
+      width: 10px;
+      border: solid 1px #e9e7e7;
+      box-shadow: 0 0 1vw #000000c0;
+      border-radius: 5px;
+      background: #e9e7e700;
+      transition: all 0.3s ease-out;
+    }
+  }
+  .Dots_Items:hover {
+    div {
+      background: #e9e7e7;
+    }
+  }
+}
+
+.Carrousel_button {
+  height: 100%;
+  width: 80px;
+
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .Carrousel_button_Svg {
+    width: 25px;
+    height: 120px;
+    overflow: visible;
+    cursor: pointer;
+    opacity: 0.4;
+
+    transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+  }
+  .Carrousel_button_Svg:hover {
+    opacity: 1;
+  }
+  .arr-1 {
+    fill: none;
+    stroke: #e9e7e7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 25px;
+  }
+}
+#Prev {
+  left: 0;
+}
+#Next {
+  right: 0;
+  .Carrousel_button_Svg {
+    transform: rotate(180deg);
+  }
+}
+.Carrousel_Slider {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  overflow: visible;
+
+  transform: translateX(-100vw);
+}
+.Carrousel_Items {
+  width: 100vw;
+  height: 100%;
+}
+
+.Carrousel_Title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 50px;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+
+  font-family: "Futura";
+
+  .Title_Holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    color: #e9e7e7;
+    cursor: pointer;
+    pointer-events: none;
+    z-index: 2;
+    display: flex;
+    transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+
+    a {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+    }
+
+    h1 {
+      width: auto;
+      max-width: 88vw;
+      font-weight: 100;
+      font-size: 2.2rem;
+      letter-spacing: -2px;
+      line-height: 2.2rem;
+      text-transform: uppercase;
+      transition: all 1.3s cubic-bezier(0.25, 0, 0, 1),
+        letter-spacing 2s cubic-bezier(0.25, 0, 0, 1);
+      margin-top: 4px;
+    }
+    h1::after {
+      width: 50%;
+      content: "";
+      height: 2px;
+      background: #e9e7e7;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      margin: auto;
+      transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+    }
+    h2 {
+      max-width: 93vw;
+
+      font-weight: 100;
+      font-size: 0.9rem;
+      letter-spacing: 0.2vw;
+      line-height: 1.5rem;
+      transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+    }
+  }
+
+  .Title_Holder:hover {
+    h1::after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+#ISlot1 {
+  background-position: top;
+  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?crop=entropy&cs=srgb&dl=pexels-evg-culture-1126993.jpg&fit=crop&fm=jpg&h=1280&w=1920");
+}
+#ISlot2 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/35188/child-childrens-baby-children-s.jpg?crop=entropy&cs=srgb&dl=pexels-bess-hamiti-35188.jpg&fit=crop&fm=jpg&h=1346&w=2048");
+}
+#ISlot3 {
+  background-position: top;
+  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/247298/pexels-photo-247298.jpeg?crop=entropy&cs=srgb&dl=pexels-pixabay-247298.jpg&fit=crop&fm=jpg&h=1279&w=1920");
+}
+
+#sec2 {
+  background: pink;
+}
+#sec3 {
+  background: lightskyblue;
+}
+#sec4 {
+  background: violet;
+}
+#sec5 {
+  background: brown;
+}

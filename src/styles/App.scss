@@ -1,0 +1,539 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+#main_scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0s linear;
+}
+
+.nav_container {
+  width: 100vw;
+  height: auto;
+  color: #e9e7e7;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(to bottom, #151515, #15151500);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 99;
+
+  transition: all 0.8s cubic-bezier(0.25, 0, 0, 1), width 0s linear;
+}
+.Nav_overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background: #15151500;
+  top: 0;
+
+  transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+}
+.nav_container:hover .Nav_overlay {
+  background: #151515;
+}
+.Pop_Up {
+  min-width: 92vw;
+  min-height: 300px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  z-index: -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: none;
+  pointer-events: none;
+
+  overflow: hidden;
+}
+.Pop_Elements {
+  pointer-events: none;
+  background: #e9e7e7;
+  width: 100%;
+  min-height: 60px;
+  height: auto;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 40px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+
+  transform: translateY(-104%);
+
+  .Ver_line {
+    display: flex;
+    min-height: 60px;
+    position: relative;
+    width: 1px;
+    background: #99999999;
+  }
+  .column {
+    color: #151515;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    h1 {
+      color: #212121;
+      font-family: "Futura";
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    h5,
+    a {
+      color: #212121;
+      font-family: "Futura";
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      line-height: 1.3rem;
+      transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+    }
+    h5 {
+      text-decoration: underline;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      opacity: 0.3;
+    }
+
+    .tag_description {
+      width: 100%;
+      margin-left: 5px;
+
+      opacity: 0;
+      transition: all 1.3s cubic-bezier(0.25, 0, 0, 1);
+      z-index: 2;
+      position: relative;
+    }
+    .tag_description::after {
+      content: "";
+      height: 100%;
+      position: absolute;
+      left: -10px;
+      bottom: 0;
+      width: 3px;
+      background: #e9e7e7;
+    }
+
+    h2 {
+      color: #e9e7e7;
+      font-family: "Futura";
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      line-height: 1rem;
+      margin-bottom: 10px;
+    }
+    h3 {
+      color: #e9e7e7;
+      font-family: "Futura";
+      font-weight: 400;
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+    }
+    p {
+      max-width: 180px;
+
+      color: #212121;
+      font-family: "Futura";
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      line-height: 1.3rem;
+    }
+  }
+  .Pop_image {
+    cursor: pointer;
+    background-color: #c9c7c7;
+    min-width: 50px;
+    min-height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition: all 1.3s cubic-bezier(0.25, 0, 0, 1);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+  .Pop_image::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 62%;
+    left: 0;
+    background: linear-gradient(to bottom, #00000000, #000000);
+    opacity: 0;
+    transition: all 1.3s cubic-bezier(0.25, 0, 0, 1);
+  }
+
+  .Pop_image:hover {
+    background-size: 130%;
+  }
+
+  .Pop_image:hover::before,
+  .Pop_image:hover .tag_description {
+    opacity: 1;
+  }
+  .Tag_logo {
+    min-width: 150px;
+    min-height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .Socials {
+    min-width: 38px;
+    min-height: 38px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+  }
+}
+
+#Tin-moi {
+  // display: flex;
+
+  #Latest {
+    width: 360px;
+    height: 240px;
+    background-image: url("https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg?crop=entropy&cs=srgb&dl=pexels-freestocksorg-291762.jpg&fit=crop&fm=jpg&h=853&w=1280");
+  }
+  #Trending {
+    width: 160px;
+    height: 240px;
+    background-position: top left;
+    background-image: url("https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?crop=entropy&cs=srgb&dl=pexels-konstantin-mishchenko-1926769.jpg&fit=crop&fm=jpg&h=959&w=640");
+  }
+}
+
+#Thoi-trang-ao {
+  // display: flex;
+  #Recommend {
+    width: 360px;
+    height: 240px;
+    background-image: url("https://images.pexels.com/photos/5872/fashion-red-yellow-designer-5872.jpg?crop=entropy&cs=srgb&dl=pexels-kaboompics-com-5872.jpg&fit=crop&fm=jpg&h=853&w=1280");
+  }
+  #Nothing {
+    width: 160px;
+    height: 240px;
+    background-position: top left;
+
+    background-image: url("https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?crop=entropy&cs=srgb&dl=pexels-konstantin-mishchenko-1926769.jpg&fit=crop&fm=jpg&h=959&w=640");
+  }
+
+  h5 {
+    margin-top: 20px;
+  }
+}
+
+#Virtual-influencer {
+  // display: flex;
+
+  h5 {
+    margin-top: 40px;
+  }
+  #Lil-Miquela {
+    width: 240px;
+    height: 240px;
+    background-image: url("https://snobette.com/wp-content/uploads/2020/05/lil-miquela-signs-with-CAA-2-1005x1024.jpg");
+  }
+
+  #Shudu-Gram {
+    width: 240px;
+    height: 240px;
+    background-position: top;
+    background-image: url("https://image.phunuonline.com.vn/fckeditor/upload/2021/20210911/images/nguoi-mau-ao_421631352461.jpg");
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+#Ve-chung-toi {
+  // display: flex;
+  #VDFM {
+    background-image: url(../Vectors/VDFM.svg);
+  }
+  #MAD-THC {
+    background-image: url(../Vectors/MADTHC.svg);
+  }
+}
+#Lien-he {
+  // display: flex;
+
+  strong {
+    font-weight: 550;
+    text-decoration: underline;
+    color: #212121;
+    letter-spacing: 1px;
+  }
+  #Email {
+    margin-bottom: 10px;
+    strong {
+      font-weight: 650;
+    }
+  }
+  #FB {
+    background-image: url(../Vectors/FB.svg);
+  }
+  #IG {
+    background-image: url(../Vectors/IG.svg);
+  }
+  #LinkedIn {
+    background-image: url(../Vectors/LinkedIn.svg);
+  }
+  .row {
+    gap: 30px;
+    margin-top: 10px;
+  }
+  h5 {
+    margin-top: 10px;
+  }
+}
+
+.main_nav {
+  width: 100%;
+  height: auto;
+  min-height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+
+  padding-left: 2vw;
+  padding-right: 2vw;
+  h5 {
+    font-weight: 400;
+    font-size: 0.7rem;
+    opacity: 50%;
+  }
+}
+
+.left_nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.center_nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+
+  .logo {
+    height: 70px;
+    display: flex;
+    opacity: 1;
+    transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    color: #e9e7e7;
+
+    h1 {
+      font-family: "Monument Extended";
+      font-weight: 400;
+      font-size: 2.4rem;
+      line-height: 40px;
+      letter-spacing: 0;
+      transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+    }
+
+    h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      line-height: 10px;
+      transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+    }
+  }
+
+  .logo:hover {
+    h1 {
+      font-size: 3.2rem;
+      letter-spacing: 5px;
+      line-height: 70px;
+    }
+    h2 {
+      line-height: 0;
+      opacity: 0;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.right_nav {
+  opacity: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 110px;
+  transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+
+  .srch-1 {
+    fill: none;
+  }
+  .srch-2 {
+    fill: none;
+    stroke: #e9e7e7;
+    stroke-miterlimit: 10;
+    stroke-width: 60px;
+  }
+  .Search_bar {
+    height: auto;
+    width: auto;
+    position: relative;
+  }
+  #search_icon {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 30px;
+    height: 30px;
+    overflow: visible;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+  }
+  input {
+    color: #e9e7e7;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: solid 2px #e9e7e7;
+    outline: none;
+    border-radius: 20px;
+    transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  input:hover,
+  input:focus,
+  input:valid {
+    width: 160px;
+  }
+}
+
+.liB {
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e9e7e7;
+  cursor: pointer;
+  text-decoration: none;
+  list-style: none;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  font-family: "Futura";
+  text-transform: uppercase;
+  padding-left: 12px;
+  padding-right: 12px;
+  position: relative;
+
+  transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+  div {
+    width: 100%;
+    height: 7px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+  }
+}
+.spanB {
+  width: auto;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 1.5px;
+  right: 1.5px;
+
+  background: #e9e7e7;
+  z-index: -1;
+  transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.liA {
+  color: #151515;
+}
+
+.spanA {
+  height: 100%;
+}
+.Pop_Elements_Active {
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+@import "./Homepage";
